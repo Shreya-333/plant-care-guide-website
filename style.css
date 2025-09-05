@@ -1,0 +1,264 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  overflow-x: hidden;
+  background: #000;
+}
+
+/* Navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  z-index: 10;
+  transition: top 0.3s ease;
+}
+
+.navbar.hidden {
+  top: -80px; /* hide out of view */
+}
+
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #fff;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s, background 0.3s;
+  padding: 6px 10px;
+  border-radius: 6px;
+}
+
+.nav-links a:hover {
+  color: #a6ffaf;
+}
+
+.nav-links a.active {
+  background: #a6ffaf;
+  color: #000;
+}
+
+/* Sections */
+.section {
+  display: none; /* hidden by default */
+  height: 100vh;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+
+  /* background setup */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;   /* fill screen */
+  background-attachment: fixed; /* ✅ fixed like wallpaper */
+}
+
+.section.active {
+  display: flex; /* only active section is visible */
+}
+
+.section-inner {
+  background: rgba(0, 0, 0, 0.4); /* dark transparent */
+  padding: 2rem;
+  border-radius: 12px;
+  margin: 0 auto;      /* centers */
+  width: 80%;          /* almost full width */
+  max-width: 1000px;   /* prevents it being too wide on big screens */
+}
+
+
+/* Different Backgrounds */
+#home {
+  background-image: url("home.png");
+}
+
+#care-tips {
+  background-image: url("care.gif");
+}
+
+#problems {
+  background-image: url("pest.png");
+}
+
+#beginners {
+  background-image: url("plants.png");
+}
+
+#resources {
+  background-image: url("home.png");
+}
+
+#contact {
+  background-image: url("plants.png");
+}
+
+/* Care Tips Grid */
+.care-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.care-card {
+  background: rgba(255, 255, 255, 0.13);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  padding: 20px;
+  color: #fff;
+  font-size: 1rem;
+  line-height: 1.5;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.care-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+}
+
+.tip-card-wide {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 1.5rem;
+  margin-top: 20px;
+  border-radius: 12px;
+  text-align: center;
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: #fff;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+}
+
+
+/* Problems Grid */
+.problems-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.problem-card {
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  padding: 20px;
+  color: #fff;
+  font-size: 1rem;
+  line-height: 1.5;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.problem-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+}
+
+.plants-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.plant-card {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 6px;
+  padding: 0.8rem;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  min-height: 200px; /* 🔥 ensures all cards stay same height */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.plant-card img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;   /* 🔥 crops to fit same size */
+  border-radius: 2px;
+  margin-bottom: 0.5rem;
+}
+
+.plant-card h3 {
+  font-size: 1rem;
+  margin-bottom: 0.3rem;
+}
+
+.plant-card p {
+  font-size: 0.85rem;
+  line-height: 1.3;
+  flex-grow: 1; /* balances text space */
+}
+
+.plant-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+}
+
+.resources-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.resource-card {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  padding: 1rem;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.resource-card h3 {
+  margin-bottom: 0.5rem;
+}
+
+.resource-card a {
+  display: inline-block;
+  margin-top: 0.8rem;
+  padding: 0.5rem 1rem;
+  background: #a6ffaf;
+  color: #123912;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.3s;
+}
+
+.resource-card a:hover {
+  background: #97e89a;
+}
+
+.resource-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+}
